@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add the Bootstrap CSS link above if not already included in your project -->
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #343a40;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+            color: #6c757d;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem !important;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">STOCK PRICE PREDICTION</h1>
+        <h2>Please enter the following information:</h2>
+        <ul>
+            <li>Stock Name is the CAPITALIZED letters for the stock, AAPL for Apple. (Append .NS for Indian NSE stocks e.g. TATAMOTORS.NS for Tata Motors)</li>
+            <li>Ahead is the number of days you want to predict ahead of time. The fewer the number in "Ahead," the higher the accuracy because the machine will have a hard time predicting further into the future.</li>
+        </ul>
+
+        <div class="mt-4">
+            {% block predict %}
+            {% endblock predict %}
+        </div>
+
+        <div class="mt-4">
+            {% block fdback %}
+            {% endblock fdback %}
+        </div>
+    </div>
+</body>
+</html>

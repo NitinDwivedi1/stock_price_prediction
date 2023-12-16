@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add the Bootstrap CSS link above if not already included in your project -->
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .rating {
+            display: inline-block;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            color: #007bff;
+            font-size: 30px;
+            padding: 5px;
+            float: right;
+            cursor: pointer;
+        }
+
+        .rating label:before {
+            content: '\2605';
+        }
+
+        .rating input:checked ~ label {
+            color: #ffcc00;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>Stock Price Prediction</h2>
+        <h2>Predicted price {{ ahead }} days from today: {{ predicted_price }}</h2>
+        <img src="data:image/png;base64, {{ plot_url }}" alt="Prediction Plot">
+    </section>
+
+    <div class="container">
+        {% block fdback %}
+        <h4>Rate us:</h4>
+        <form action="/feedback" method="POST">
+            <div class="form-group">
+                <div class="rating">
+                    <input type="radio" id="star5" name="fbstar" value="5">
+                    <label for="star5"></label>
+                    <input type="radio" id="star4" name="fbstar" value="4">
+                    <label for="star4"></label>
+                    <input type="radio" id="star3" name="fbstar" value="3">
+                    <label for="star3"></label>
+                    <input type="radio" id="star2" name="fbstar" value="2">
+                    <label for="star2"></label>
+                    <input type="radio" id="star1" name="fbstar" value="1">
+                    <label for="star1"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fbtext">Feedback</label>
+                <input type="text" name="fbtext" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block fdback %}
+
+<form action="/feedback" method="POST">
+    <p>Star<input type="number" min='1' max='5' name="fbstar"></p>
+    <p>Feedback<input type="text" name="fbtext"></p>
+    <p><input type = "submit" value = "Submit" /></p>
+</form>
+
+{% endblock %}

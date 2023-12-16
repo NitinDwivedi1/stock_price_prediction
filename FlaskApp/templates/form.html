@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block predict %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<form action="/data" method="POST" class="prediction-form">
+    <div class="form-group">
+        <label for="stockName">Stock Name</label>
+        <input type="text" name="Name" id="stockName" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="aheadDays">Ahead</label>
+        <input type="number" name="Ahead" id="aheadDays" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
