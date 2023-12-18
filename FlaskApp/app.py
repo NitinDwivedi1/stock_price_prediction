@@ -53,7 +53,7 @@ def feedback():
     print(review_star,type(review_star))
     print(review_text)
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('INSERT INTO stock.feedback VALUES (NULL,%s,%s)', (review_star, review_text))
+    cursor.execute('INSERT INTO stock.feedback VALUES (NULL,%s,%s)', (review_star, review_text))#insert the sql query
     mysql.connection.commit()
     cursor.close()
     msg = 'Thanks for your feedback!'
